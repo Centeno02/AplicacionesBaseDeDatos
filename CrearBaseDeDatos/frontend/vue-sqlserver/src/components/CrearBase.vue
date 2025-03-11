@@ -82,37 +82,57 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .form-container {
-  width: 300px;
+  width: 350px; /* Aumenté el ancho para dar más espacio */
   margin: 0 auto;
-  padding: 20px;
+  padding: 25px; /* Aumenté el padding para más espacio interno */
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
 input {
-  width: 100%;
-  padding: 8px;
+  width: calc(100% - 20px); /* Reduje el ancho para dejar espacio a los lados */
+  padding: 10px; /* Aumenté el padding para mejor legibilidad */
   margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px; /* Tamaño de fuente más legible */
 }
+
+input:focus {
+  border-color: #4CAF50; /* Cambia el color del borde al enfocar */
+  outline: none; /* Elimina el contorno predeterminado */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Sombra al enfocar */
+}
+
 button {
   width: 100%;
-  padding: 10px;
+  padding: 12px; /* Aumenté el padding para mejor apariencia */
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
+  font-size: 16px; /* Tamaño de fuente más grande */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave */
 }
+
 button:hover {
   background-color: #45a049;
 }
+
 .success {
   color: green;
   font-weight: bold;
+  margin-top: 15px; /* Espacio superior para separar del botón */
+  text-align: center; /* Centrar el mensaje */
 }
+
 .error {
   color: red;
   font-weight: bold;
+  margin-top: 15px; /* Espacio superior para separar del botón */
+  text-align: center; /* Centrar el mensaje */
 }
 </style>
