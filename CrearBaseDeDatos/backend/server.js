@@ -9,10 +9,10 @@ app.use(express.json());
 
 // Configuración de la conexión a SQL Server
 const config = {
-  user: 'superadmin',                 // Usuario de la base de datos
-  password: 'P@ssw0rd123',         // Contraseña de la base de datos
+  user: 'sa',                 // Usuario de la base de datos
+  password: '123456',         // Contraseña de la base de datos
   server: 'localhost',        // Dirección del servidor de base de datos
-  database: 'AdminDB',         // Base de datos donde se ejecutará el procedimiento almacenado
+  database: 'master',         // Base de datos donde se ejecutará el procedimiento almacenado
   options: {
     encrypt: true,            // Usar cifrado (recomendado para Azure, pero también útil en otras configuraciones)
     trustServerCertificate: true, // Permitir conexiones sin validar el certificado del servidor

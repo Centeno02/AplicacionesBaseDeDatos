@@ -2,6 +2,14 @@
 import { ref } from 'vue';
 import CrearBase from './components/CrearBase.vue';
 import ListaBase from './components/ListarBases.vue';
+import crearlogin from './components/CrearLogin.vue';
+import asignarroles from './components/AsignarPermisos.vue';
+import tableLogin from './components/TablaLogins.vue';
+
+import backups from './components/BackupView.vue';
+
+
+
 
 // Creamos una propiedad reactiva para manejar el estado del menú
 const menuActivo = ref('crear'); // 'crear' o 'listar'
@@ -16,6 +24,13 @@ const menuActivo = ref('crear'); // 'crear' o 'listar'
       <ul>
         <li @click="menuActivo = 'crear'" :class="{ active: menuActivo === 'crear' }">Crear Base de Datos</li>
         <li @click="menuActivo = 'listar'" :class="{ active: menuActivo === 'listar' }">Bases de Datos Existentes</li>
+        <li @click="menuActivo = 'login'" :class="{ active: menuActivo === 'login' }">Crear Login</li>
+        <li @click="menuActivo = 'tableLogin'" :class="{ active: menuActivo === 'tableLogin' }">Usuarios</li>
+        <li @click="menuActivo = 'asignar'" :class="{ active: menuActivo === 'asignar' }">Permisos y roles</li>
+        <li @click="menuActivo = 'backups'" :class="{ active: menuActivo === 'backups' }">Backups</li>
+
+
+
       </ul>
     </nav>
 
@@ -27,6 +42,18 @@ const menuActivo = ref('crear'); // 'crear' o 'listar'
         </div>
         <div v-if="menuActivo === 'listar'">
           <ListaBase />
+        </div>
+        <div v-if="menuActivo === 'login'">
+          <crearlogin />
+        </div>
+        <div v-if="menuActivo === 'tableLogin'">
+          <tableLogin />
+        </div>
+        <div v-if="menuActivo === 'asignar'">
+          <asignarroles />
+        </div>
+        <div v-if="menuActivo === 'backups'">
+          <backups />
         </div>
       </div>
     </transition>

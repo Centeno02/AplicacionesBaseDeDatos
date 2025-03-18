@@ -1,59 +1,55 @@
 <template>
-  <div class="container">
-    <h2>Crear Login y Usuario</h2>
-    <form @submit.prevent="createUser">
-      <input v-model="form.LoginName" placeholder="Login Name" required />
-      <input v-model="form.Password" placeholder="Password" type="password" required />
-      <input v-model="form.UserName" placeholder="User Name" required />
-      <input v-model="form.DatabaseName" placeholder="Database Name" required />
-      <input v-model="form.Permissions" placeholder="Permissions (opcional)" />
-      <input v-model="form.Roles" placeholder="Roles (separados por coma)" />
-      <button type="submit">Crear</button>
-    </form>
-    <p v-if="message">{{ message }}</p>
+  <div id="app">
+    <!-- Menú de navegación -->
+    <nav>
+      <ul>
+        <li><router-link to="/gestion-logins">Gestión de Logins</router-link></li>
+        <li><router-link to="/asignacion-permisos">Asignación de Permisos</router-link></li>
+        <li><router-link to="/tabla">tabla</router-link></li>
+        <li><router-link to="/revoke">quitar</router-link></li>
+
+
+      </ul>
+    </nav>
+
+    <!-- Vista de contenido -->
+    <router-view />
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-  data() {
-    return {
-      form: {
-        LoginName: "",
-        Password: "",
-        UserName: "",
-        DatabaseName: "",
-        Permissions: "",
-        Roles: "",
-      },
-      message: "",
-    };
-  },
-  methods: {
-    async createUser() {
-      try {
-        const response = await axios.post("http://localhost:3000/create-user", this.form);
-        this.message = response.data.message;
-      } catch (error) {
-        this.message = "Error: " + error.response.data.error;
-      }
-    },
-  },
+  name: 'App',
 };
 </script>
 
-<style scoped>
-.container {
-  max-width: 400px;
-  margin: auto;
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
+  color: #2c3e50;
 }
-input, button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 8px;
+
+nav {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #42b983;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>
